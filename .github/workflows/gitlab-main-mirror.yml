@@ -1,0 +1,88 @@
+name: Mirror main to GitLab
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: mirror-gitlab-main
+  cancel-in-progress: true
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Synchronize main with GitLab
+        env:
+          GITLAB_SSH_PRIVATE_KEY: ${{ secrets.GITLAB_MIRROR_SSH_KEY }}
+          GITLAB_REPOSITORY: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ -z "$GITLAB_SSH_PRIVATE_KEY" ]]; then
+            echo "::error::The GITLAB_MIRROR_SSH_KEY repository secret is not configured."
+            exit 1
+          fi
+
+          ssh_directory="$(mktemp -d)"
+          private_key_file="${ssh_directory}/id_ed25519"
+          known_hosts_file="${ssh_directory}/known_hosts"
+          trap 'rm -rf "$ssh_directory"' EXIT
+
+          printf '%s\n' "$GITLAB_SSH_PRIVATE_KEY" > "$private_key_file"
+          chmod 600 "$private_key_file"
+          printf '%s\n' \
+            'gitlab.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAfuCHKVTjquxvt6CM6tdG4SLp1Btn/nOeHHE5UOzRdf' \
+            > "$known_hosts_file"
+          chmod 600 "$known_hosts_file"
+          gitlab_ssh_command="ssh -i $private_key_file -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=$known_hosts_file"
+
+          gitlab_url="git@gitlab.com:${GITLAB_REPOSITORY}.git"
+          source_ref="refs/remotes/origin/main"
+          target_ref="refs/heads/main"
+
+          git fetch --no-tags --force origin \
+            "+refs/heads/main:${source_ref}"
+          source_sha="$(git rev-parse "$source_ref")"
+          target_sha="$(
+            GIT_SSH_COMMAND="$gitlab_ssh_command" \
+              git ls-remote "$gitlab_url" "$target_ref" |
+              awk 'NR == 1 { print $1 }'
+          )"
+
+          if [[ "$source_sha" == "$target_sha" ]]; then
+            echo "GitLab main is already synchronized at $source_sha."
+            exit 0
+          fi
+
+          GIT_SSH_COMMAND="$gitlab_ssh_command" \
+            git push \
+            "--force-with-lease=${target_ref}:${target_sha}" \
+            "$gitlab_url" \
+            "${source_ref}:${target_ref}"
+
+          mirrored_sha="$(
+            GIT_SSH_COMMAND="$gitlab_ssh_command" \
+              git ls-remote "$gitlab_url" "$target_ref" |
+              awk 'NR == 1 { print $1 }'
+          )"
+
+          if [[ "$mirrored_sha" != "$source_sha" ]]; then
+            echo "::error::GitLab main is at ${mirrored_sha:-<missing>}; expected $source_sha."
+            exit 1
+          fi
+
+          echo "GitLab main is synchronized at $source_sha."
