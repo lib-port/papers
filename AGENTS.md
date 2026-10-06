@@ -15,3 +15,7 @@ Any test that requires data from GitHub must use authenticated GitHub calls. Kee
 # Repository instructions
 
 Do not use OpenAI Sites or any Sites build, hosting, publishing, or deployment workflow in this repository.
+
+# Commit and Push Guardrail
+
+Do not create, amend, rewrite, or push commits without the user's explicit permission.

@@ -1,33 +1,6 @@
-import type {PrismTheme} from 'prism-react-renderer';
+import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-
-function createGreyscaleCodeTheme(
-  foreground: string,
-  background: string,
-  secondary: string,
-  accent: string,
-): PrismTheme {
-  return {
-    plain: {color: foreground, backgroundColor: background},
-    styles: [
-      {
-        types: ['comment', 'prolog', 'doctype', 'cdata'],
-        style: {color: secondary, fontStyle: 'italic'},
-      },
-      {
-        types: ['keyword', 'atrule'],
-        style: {color: foreground, fontWeight: 'bold'},
-      },
-      {
-        types: ['string', 'char', 'number', 'boolean'],
-        style: {color: accent},
-      },
-      {types: ['bold'], style: {fontWeight: 'bold'}},
-      {types: ['italic'], style: {fontStyle: 'italic'}},
-    ],
-  };
-}
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -113,8 +86,8 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} lib-port. Built with Docusaurus and GitHub Pages.`,
     },
     prism: {
-      theme: createGreyscaleCodeTheme('#242424', '#f0f0f0', '#626262', '#525252'),
-      darkTheme: createGreyscaleCodeTheme('#e6e6e6', '#242424', '#b0b0b0', '#d4d4d4'),
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
 };

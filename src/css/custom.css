@@ -103,7 +103,7 @@
   --ifm-badge-color: var(--ifm-color-content-inverse);
   --ifm-code-background: #f0f0f0;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: #e5e5e5;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
 /* Keep text and controls clear on charcoal surfaces. */
@@ -130,7 +130,7 @@ html[data-theme='dark'] {
   --ifm-code-background: #242424;
   --ifm-menu-link-sublist-icon-filter: invert(100%);
   --ifm-breadcrumb-separator-filter: invert(100%);
-  --docusaurus-highlighted-code-line-bg: #303030;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
 /* Prose links remain recognisable without a coloured accent. */
@@ -156,7 +156,7 @@ html[data-theme='dark'] {
   text-underline-offset: 0.2em;
 }
 
-:focus-visible {
+:focus-visible:not(.theme-code-block *) {
   outline: 2px solid var(--site-focus-outline);
   outline-offset: 3px;
 }
@@ -181,7 +181,11 @@ html[data-theme='dark'] {
   color: var(--ifm-color-content);
 }
 
-/* Copy confirmation retains its checkmark in the current text colour. */
-.theme-code-block svg {
-  color: inherit;
+/* Use the classic theme's borders within fenced code blocks. */
+.theme-code-block {
+  --ifm-color-emphasis-300: #dadde1;
+}
+
+html[data-theme='dark'] .theme-code-block {
+  --ifm-color-emphasis-300: #606770;
 }
