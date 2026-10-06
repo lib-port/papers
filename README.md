@@ -2,15 +2,19 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
+[View the published site](https://lib-port.github.io/papers/).
+
 The separate landing page is disabled. The introductory document is served at `/papers/`; the site title and logo link there. Other documentation URLs omit the `/docs/` prefix.
 
 ## Installation
 
+Use **Node.js 24**, as specified in [.node-version](.node-version), and npm.
+
 ```bash
-npm install
+npm ci
 ```
 
-**Note**: feel free to use the package manager of your choice.
+This installs the dependency versions recorded in `package-lock.json`.
 
 ## Local Development
 
@@ -23,23 +27,22 @@ This command starts a local development server and opens up a browser window. Mo
 ## Build
 
 ```bash
+npm run typecheck
 npm run build
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+The build generates static content in the `build` directory. To preview it locally:
+
+```bash
+npm run serve
+```
 
 ## Deployment
 
-Using SSH:
+The [GitHub Pages workflow](.github/workflows/deploy-pages.yml) type-checks, builds and deploys pushes to `main` that change its listed site, dependency or workflow paths. A README-only push skips deployment.
 
-```bash
-USE_SSH=true npm run deploy
-```
+To deploy manually, open **Actions → Deploy Docusaurus to GitHub Pages → Run workflow** and select `main`. Other branches can be built manually, but deployment is restricted to `main`.
 
-Not using SSH:
+CI resolves the latest Docusaurus release at build time and installs all direct Docusaurus packages at that version. Local installation with `npm ci` uses the checked-in lockfile, so local and published builds can use different Docusaurus versions.
 
-```bash
-GIT_USER=<Your GitHub username> npm run deploy
-```
-
-If you are using GitHub Pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+The workflow uploads `build/` as a Pages artefact and deploys it through the `github-pages` environment. GitHub Pages is configured to use GitHub Actions and serves the site at <https://lib-port.github.io/papers/>.

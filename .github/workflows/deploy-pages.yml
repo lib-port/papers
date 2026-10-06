@@ -1,0 +1,113 @@
+name: Deploy Docusaurus to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/deploy-pages.yml
+      - .node-version
+      - .npmrc
+      - docs/**
+      - docusaurus.config.ts
+      - package.json
+      - package-lock.json
+      - sidebars.ts
+      - src/**
+      - static/**
+      - tsconfig.json
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build site
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      - name: Resolve latest Docusaurus release
+        id: docusaurus
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          version="$(npm view @docusaurus/core dist-tags.latest --prefer-online)"
+          if [[ ! "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+([.+-][0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error::npm returned an invalid Docusaurus version: $version"
+            exit 1
+          fi
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "Building with Docusaurus $version"
+
+      - name: Install dependencies
+        env:
+          DOCUSAURUS_VERSION: ${{ steps.docusaurus.outputs.version }}
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          npm install \
+            --no-save \
+            --no-package-lock \
+            --prefer-offline \
+            --prefer-online=false \
+            --no-audit \
+            --no-fund \
+            "@docusaurus/core@${DOCUSAURUS_VERSION}" \
+            "@docusaurus/faster@${DOCUSAURUS_VERSION}" \
+            "@docusaurus/preset-classic@${DOCUSAURUS_VERSION}" \
+            "@docusaurus/theme-common@${DOCUSAURUS_VERSION}" \
+            "@docusaurus/module-type-aliases@${DOCUSAURUS_VERSION}" \
+            "@docusaurus/tsconfig@${DOCUSAURUS_VERSION}" \
+            "@docusaurus/types@${DOCUSAURUS_VERSION}"
+
+      - name: Type-check site
+        run: npm run typecheck
+
+      - name: Build site
+        run: npm run build
+
+      - name: Upload Pages artefact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: build
+          retention-days: 1
+          include-hidden-files: true
+
+  deploy:
+    name: Deploy site
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
