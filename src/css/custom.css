@@ -1,0 +1,187 @@
+/* Neutral colour tokens shared by both themes. */
+:root {
+  --ifm-color-gray-0: #ffffff;
+  --ifm-color-gray-100: #f5f5f5;
+  --ifm-color-gray-200: #e5e5e5;
+  --ifm-color-gray-300: #d4d4d4;
+  --ifm-color-gray-400: #a3a3a3;
+  --ifm-color-gray-500: #737373;
+  --ifm-color-gray-600: #626262;
+  --ifm-color-gray-700: #525252;
+  --ifm-color-gray-800: #404040;
+  --ifm-color-gray-900: #242424;
+  --ifm-color-gray-1000: #000000;
+
+  --ifm-color-primary: #525252;
+  --ifm-color-primary-dark: #494949;
+  --ifm-color-primary-darker: #454545;
+  --ifm-color-primary-darkest: #393939;
+  --ifm-color-primary-light: #6c6c6c;
+  --ifm-color-primary-lighter: #868686;
+  --ifm-color-primary-lightest: #a0a0a0;
+
+  --site-selection-background: #f0f0f0;
+  --site-divider: #d4d4d4;
+  --site-control-border: #737373;
+  --site-focus-outline: #404040;
+
+  --ifm-background-color: #fafafa;
+  --ifm-background-surface-color: #ffffff;
+  --ifm-color-content: #242424;
+  --ifm-color-content-secondary: #626262;
+  --ifm-color-content-inverse: #ffffff;
+  --ifm-color-emphasis-300: var(--site-divider);
+  --ifm-hover-overlay: rgba(0, 0, 0, 0.04);
+
+  --ifm-color-primary-contrast-background: var(--ifm-code-background);
+  --ifm-color-primary-contrast-foreground: var(--ifm-color-content);
+  --ifm-color-secondary: var(--site-selection-background);
+  --ifm-color-secondary-dark: var(--ifm-color-emphasis-200);
+  --ifm-color-secondary-darker: var(--ifm-color-emphasis-300);
+  --ifm-color-secondary-darkest: var(--ifm-color-emphasis-400);
+  --ifm-color-secondary-light: var(--ifm-background-surface-color);
+  --ifm-color-secondary-lighter: var(--ifm-background-surface-color);
+  --ifm-color-secondary-lightest: var(--ifm-background-surface-color);
+  --ifm-color-secondary-contrast-background: var(--ifm-code-background);
+  --ifm-color-secondary-contrast-foreground: var(--ifm-color-content);
+
+  /* Status meaning comes from each component's label and icon. */
+  --ifm-color-success: var(--ifm-color-primary);
+  --ifm-color-success-dark: var(--ifm-color-primary-dark);
+  --ifm-color-success-darker: var(--ifm-color-primary-darker);
+  --ifm-color-success-darkest: var(--ifm-color-primary-darkest);
+  --ifm-color-success-light: var(--ifm-color-primary-light);
+  --ifm-color-success-lighter: var(--ifm-color-primary-lighter);
+  --ifm-color-success-lightest: var(--ifm-color-primary-lightest);
+  --ifm-color-success-contrast-background: var(--ifm-color-primary-contrast-background);
+  --ifm-color-success-contrast-foreground: var(--ifm-color-primary-contrast-foreground);
+  --ifm-color-info: var(--ifm-color-primary);
+  --ifm-color-info-dark: var(--ifm-color-primary-dark);
+  --ifm-color-info-darker: var(--ifm-color-primary-darker);
+  --ifm-color-info-darkest: var(--ifm-color-primary-darkest);
+  --ifm-color-info-light: var(--ifm-color-primary-light);
+  --ifm-color-info-lighter: var(--ifm-color-primary-lighter);
+  --ifm-color-info-lightest: var(--ifm-color-primary-lightest);
+  --ifm-color-info-contrast-background: var(--ifm-color-primary-contrast-background);
+  --ifm-color-info-contrast-foreground: var(--ifm-color-primary-contrast-foreground);
+  --ifm-color-warning: var(--ifm-color-primary);
+  --ifm-color-warning-dark: var(--ifm-color-primary-dark);
+  --ifm-color-warning-darker: var(--ifm-color-primary-darker);
+  --ifm-color-warning-darkest: var(--ifm-color-primary-darkest);
+  --ifm-color-warning-light: var(--ifm-color-primary-light);
+  --ifm-color-warning-lighter: var(--ifm-color-primary-lighter);
+  --ifm-color-warning-lightest: var(--ifm-color-primary-lightest);
+  --ifm-color-warning-contrast-background: var(--ifm-color-primary-contrast-background);
+  --ifm-color-warning-contrast-foreground: var(--ifm-color-primary-contrast-foreground);
+  --ifm-color-danger: var(--ifm-color-primary);
+  --ifm-color-danger-dark: var(--ifm-color-primary-dark);
+  --ifm-color-danger-darker: var(--ifm-color-primary-darker);
+  --ifm-color-danger-darkest: var(--ifm-color-primary-darkest);
+  --ifm-color-danger-light: var(--ifm-color-primary-light);
+  --ifm-color-danger-lighter: var(--ifm-color-primary-lighter);
+  --ifm-color-danger-lightest: var(--ifm-color-primary-lightest);
+  --ifm-color-danger-contrast-background: var(--ifm-color-primary-contrast-background);
+  --ifm-color-danger-contrast-foreground: var(--ifm-color-primary-contrast-foreground);
+
+  --ifm-link-color: var(--ifm-color-primary);
+  --ifm-link-hover-color: var(--ifm-color-primary-dark);
+  --ifm-menu-color: var(--ifm-color-content-secondary);
+  --ifm-menu-color-active: var(--ifm-color-primary);
+  --ifm-menu-color-background-active: var(--site-selection-background);
+  --ifm-menu-color-background-hover: var(--site-selection-background);
+  --ifm-menu-link-sublist-icon-filter: none;
+  --ifm-navbar-background-color: var(--ifm-background-surface-color);
+  --ifm-navbar-link-color: var(--ifm-color-content);
+  --ifm-navbar-link-hover-color: var(--ifm-color-primary-dark);
+  --ifm-toc-link-color: var(--ifm-color-content-secondary);
+  --ifm-toc-border-color: var(--site-divider);
+  --ifm-breadcrumb-separator-filter: none;
+  --ifm-footer-background-color: var(--ifm-background-surface-color);
+  --ifm-footer-color: var(--ifm-color-content-secondary);
+  --ifm-footer-link-color: var(--ifm-color-content);
+  --ifm-footer-title-color: var(--ifm-color-content);
+  --ifm-badge-color: var(--ifm-color-content-inverse);
+  --ifm-code-background: #f0f0f0;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: #e5e5e5;
+}
+
+/* Keep text and controls clear on charcoal surfaces. */
+html[data-theme='dark'] {
+  --ifm-color-primary: #d4d4d4;
+  --ifm-color-primary-dark: #bfbfbf;
+  --ifm-color-primary-darker: #b5b5b5;
+  --ifm-color-primary-darkest: #949494;
+  --ifm-color-primary-light: #e4e4e4;
+  --ifm-color-primary-lighter: #ececec;
+  --ifm-color-primary-lightest: #f5f5f5;
+
+  --site-selection-background: #303030;
+  --site-divider: #404040;
+  --site-control-border: #a3a3a3;
+  --site-focus-outline: #e6e6e6;
+
+  --ifm-background-color: #181818;
+  --ifm-background-surface-color: #242424;
+  --ifm-color-content: #e6e6e6;
+  --ifm-color-content-secondary: #b0b0b0;
+  --ifm-color-content-inverse: #181818;
+  --ifm-color-emphasis-300: var(--site-divider);
+  --ifm-code-background: #242424;
+  --ifm-menu-link-sublist-icon-filter: invert(100%);
+  --ifm-breadcrumb-separator-filter: invert(100%);
+  --docusaurus-highlighted-code-line-bg: #303030;
+}
+
+/* Prose links remain recognisable without a coloured accent. */
+.markdown a:not(.hash-link):not(.button) {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.markdown a:not(.hash-link):not(.button):hover {
+  text-decoration-thickness: 2px;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+  box-shadow: inset 3px 0 0 var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+.navbar__link--active,
+.table-of-contents__link--active {
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--site-focus-outline);
+  outline-offset: 3px;
+}
+
+/* Infima supplies coloured component overrides alongside its tokens. */
+.alert {
+  --ifm-alert-background-color-highlight: var(--site-selection-background);
+  --ifm-alert-border-color: var(--site-control-border);
+}
+
+.button.button--secondary {
+  --ifm-button-border-color: var(--site-control-border);
+  color: var(--ifm-color-content);
+}
+
+.button.button--secondary.button--outline:is(:hover, :active, .button--active) {
+  --ifm-button-background-color: var(--ifm-color-secondary-dark);
+}
+
+.badge.badge--secondary {
+  --ifm-badge-border-color: var(--site-control-border);
+  color: var(--ifm-color-content);
+}
+
+/* Copy confirmation retains its checkmark in the current text colour. */
+.theme-code-block svg {
+  color: inherit;
+}
