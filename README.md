@@ -24,6 +24,16 @@ npm run start
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
 
+With dependencies installed, run `./preview.sh` from the repository root for a
+live preview at <http://localhost:3000/papers/>. Press Ctrl+C to stop it.
+The script accepts Docusaurus options such as `./preview.sh --port 3001` and
+`./preview.sh --no-open`.
+
+Check that `node --version` reports version 24 or later. Standalone pnpm does
+not install Node.js automatically. If you use standalone pnpm 12, run
+`pnpm setup`, open a new terminal, then run `pnpm runtime set node lts -g`.
+Install npm separately with `pnpm add -g npm` if needed.
+
 ## Build
 
 ```bash

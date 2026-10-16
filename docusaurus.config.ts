@@ -78,6 +78,7 @@ const config: Config = {
         {
           href: 'https://github.com/lib-port/papers',
           label: 'GitHub',
+          target: '_self',
           position: 'right',
         },
       ],
