@@ -70,12 +70,6 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Home',
-        },
-        {
           href: 'https://github.com/lib-port/papers',
           label: 'GitHub',
           target: '_self',
