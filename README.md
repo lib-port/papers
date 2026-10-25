@@ -4,7 +4,7 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 
 [View the published site](https://lib-port.github.io/papers/).
 
-The separate landing page is disabled. The introductory document is served at `/papers/`; the site title and logo link there. Other documentation URLs omit the `/docs/` prefix.
+The separate landing page is disabled. The paper index in [`docs/index.md`](docs/index.md) is served at `/papers/`; the site title, logo and Home navigation link there. Other documentation URLs omit the `/docs/` prefix. Keep this index when adding or removing papers so links to the site root remain valid.
 
 ## Installation
 
