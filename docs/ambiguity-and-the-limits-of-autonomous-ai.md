@@ -8,7 +8,7 @@ sidebar_label: Ambiguity and the Limits of Autonomous AI
 
 ## Executive summary
 
-The value an AI system produces depends on the quality of the problem it is asked to resolve. Greater model capability can improve reasoning, implementation and the inference of missing details. It cannot guarantee the recovery of intentions or organisational constraints that the available evidence does not distinguish.
+The value an AI system produces depends on the quality of the data provided for the problem it is asked to resolve. Greater model capability can improve reasoning, implementation and the inference of missing details. It cannot guarantee the recovery of intentions or organisational constraints that the available evidence does not distinguish.
 
 As AI takes on work previously performed by people translating organisational needs into technical implementations, more of its task may involve reconstructing unstated assumptions. Familiar situations can support useful defaults. Unusual circumstances make those defaults less dependable, particularly when several assumptions must hold together.
 
@@ -34,7 +34,7 @@ The hypothesis here is that further progress will make common interpretations ea
 
 ## The hidden-constraint problem
 
-Three mathematical examples illustrate progressively greater freedom in selecting an answer. They are analogies for organisational work, but are not provided as formal definitions of its levels.
+Three mathematical examples illustrate progressively greater freedom in selecting an answer. They are analogies for organisational work, but are not provided as formal definitions of levels of ambiguity.
 
 1. **Specification:** `3 + x = 5` determines `x = 2`. The stated relationship identifies a single answer.
 2. **Requirement:** `x² = 4` admits `x = 2` and `x = −2` over the real numbers. Selecting one requires a further condition, such as positivity, if the task demands one answer.
@@ -42,7 +42,7 @@ Three mathematical examples illustrate progressively greater freedom in selectin
 
 The triple `(20, 20, 60)` may look natural for allocating whole units. Yet `(∛3, 10^e, 100 − ∛3 − 10^e)` also satisfies the equation exactly. Preferring natural numbers introduces a constraint that the equation itself does not supply. Even that restriction leaves many possibilities.
 
-Organisational requests work similarly. “Allocate this budget” does not establish the relative importance of growth, resilience, service quality and existing commitments. Past examples may suggest a plausible allocation, but they cannot establish which priorities apply here without relevant evidence.
+Organisational requests work similarly. “Allocate this budget” does not establish the relative importance of growth, resilience, service quality and existing commitments. Past examples may suggest a plausible allocation of requirements, but they cannot establish which priorities apply without relevant evidence.
 
 Some missing constraints are discoverable facts. Others are preferences that stakeholders have not articulated or decisions they have not yet made. In those cases, clarification may require negotiation and judgement. There may be no pre-existing answer waiting to be inferred.
 
@@ -52,7 +52,7 @@ Linear algebra offers a useful analogy. For a consistent system of linear equati
 
 An organisational problem can be viewed as having both stated and hidden constraints. An AI system may fill the gaps with inferred assumptions and obtain an apparently complete solution. That solution is justified only to the extent that the assumptions fit the actual situation.
 
-As the problem spans more domains, its constraints may concern unrelated matters: resource availability, customer expectations, operational dependencies and commercial priorities. Learning one may reveal little about another. However, linear independence in the mathematical analogy does not imply statistical independence between inference errors.
+As the problem spans more domains, its constraints may concern unrelated matters: resource availability, customer expectations, operational dependencies and commercial priorities. Learning one may reveal little about another. However, linear independence means that no constraint can be derived from the others. Misunderstanding of the problem or organisation could still cause the AI system to infer several constraints incorrectly, so its errors need not be statistically independent.
 
 To illustrate one possible pattern, suppose a successful outcome requires all `n` assumptions to be correct. Suppose also that each is independently correct with the same probability `p`. Then:
 
@@ -60,7 +60,7 @@ To illustrate one possible pattern, suppose a successful outcome requires all `n
 
 With `p = 0.95`, joint correctness is approximately 60% for ten assumptions and 36% for twenty. Under these assumptions, individually reliable guesses can produce a substantially less reliable combination.
 
-This is only a conditional illustration. Errors can be correlated; some assumptions are inconsequential; validation can catch mistakes; and several different solutions may be acceptable. The practical concern is the accumulation of consequential, unverified assumptions. Increases in ambiguity can, but does not consistently, produce a geometric or exponential loss of correctness across all dimensions.
+This is only a conditional illustration. Errors can be correlated; some assumptions are inconsequential; validation can catch mistakes; and several different solutions may be acceptable. The practical concern is the accumulation of consequential, unverified assumptions. Increases in ambiguity can, but does not consistently, produce a non-uniform geometric or exponential loss of correctness across all dimensions of a solution.
 
 ## Context selection and AI feedback loops
 
@@ -68,21 +68,21 @@ Consider a hypothetical organisation asking an AI system to reduce customer-supp
 
 If another AI system converts that proposal into requirements, and a third produces an implementation, the initial assumptions no longer appear conditional or unvalidated and implicitly become established facts. Agreement between stages offers limited reassurance when every stage accepts unquestioningly the same interpretation.
 
-The context supplied to any AI system is finite. Selecting it requires judgement about relevance, authority, exceptions and omissions. Delegating selection to AI can help, but creates another point at which relevant information may be excluded. More context is useful when it supplies the missing distinctions, but volume alone does not settle conflicting requirements.
+The context supplied to any AI system is finite. Selecting it requires judgement about relevance, authority, exceptions and omissions. Delegating selection to AI can help, but creates another point at which relevant information may be excluded. More context is useful when it supplies the missing distinctions, but increasing quantity of data alone does not settle conflicting requirements.
 
 Repeated AI processing can reveal inconsistencies or derive overlooked consequences from existing information. It cannot guarantee knowledge of a local fact absent from its available evidence. A loop becomes vulnerable when it repeatedly treats its own assumptions as confirmation. If evidence from outside the AI loop shows that an assumption is wrong, correcting the error may require revising many later decisions that relied on that assumption.
 
-Tools, organisational records, targeted questions and observed outcomes can introduce evidence that changes this position. The effectiveness of autonomy therefore depends partly on how the system acquires and tests information during its work.
+Tools, organisational records, targeted questions and observed outcomes can introduce evidence that changes this position. The effectiveness of autonomous AI systems therefore depends partly on how the system acquires and tests information during its operation.
 
 ## Implications for analysts and decision-makers
 
-Proposed AI use should be assessed against both model capability and the clarity of the underlying task. A strong model may handle implementation complexity well while still needing help to establish the organisation's intentions and constraints.
+Proposed AI use should be assessed against both model capability and the clarity of the requirements and supporting data of the underlying task. A strong model may handle implementation complexity well while still needing help to establish the organisation's intentions and constraints.
 
 Three practices follow from the argument:
 
 - **Make consequential assumptions visible.** Identify inferred priorities, constraints and dependencies before they become embedded in requirements or implementation.
 - **Seek evidence where interpretations diverge.** Use stakeholder clarification, relevant records or practical trials to resolve uncertainty that would materially change the outcome.
-- **Validate against organisational outcomes.** Check whether the result meets the actual need, including important exceptions, as well as whether it follows the generated specification.
+- **Validate against organisational outcomes.** Check whether the result meets the pre-defined need, including important exceptions, as well as whether it follows the generated specification.
 
 The appropriate degree of autonomy depends on the consequences of a mistaken assumption, the availability of feedback and the ease of correcting the result. Domain expertise helps determine which uncertainties deserve attention and which defaults are adequate.
 
