@@ -30,11 +30,11 @@ A comprehensive problem statement can leave substantial implementation freedom w
 
 Two difficulties follow. **Ambiguity** permits multiple interpretations; **underspecification** leaves relevant details unstated. A request to “improve service” can exhibit both. Its meaning may concern speed, quality or accessibility, while omitting acceptable costs and minimum service levels.
 
-The hypothesis here is that further progress will make common interpretations easier to infer, while unusual combinations of circumstances remain harder. This predicts uneven reliability, without establishing a permanent ceiling on performance in rare cases. Frequently occuring problem to solution mappings provides a basis for a reasonable guess, but its relevance depends on whether the current organisation fits that pattern.
+The hypothesis here is that further progress will make common interpretations easier to infer, while unusual combinations of circumstances remain harder. This predicts uneven reliability, but not necessarily a permanent ceiling on performance in rare cases. Frequently occuring problem to solution mappings provides a basis for a reasonable guess, but its relevance depends on whether the current organisation fits the pattern.
 
 ## The hidden-constraint problem
 
-Three mathematical examples illustrate progressively greater freedom in selecting an answer. They are analogies for organisational work, but are not provided as formal definitions of levels of ambiguity.
+Three mathematical examples illustrate progressively greater freedom in selecting an answer. They are analogies for organisational work and not formal definitions of levels of ambiguity.
 
 1. **Specification:** `3 + x = 5` determines `x = 2`. The stated relationship identifies a single answer.
 2. **Requirement:** `x² = 4` admits `x = 2` and `x = −2` over the real numbers. Selecting one requires a further condition, such as positivity, if the task demands one answer.
@@ -42,7 +42,7 @@ Three mathematical examples illustrate progressively greater freedom in selectin
 
 The triple `(20, 20, 60)` may look natural for allocating whole units. Yet `(∛3, 10^e, 100 − ∛3 − 10^e)` also satisfies the equation exactly. Preferring natural numbers introduces a constraint that the equation itself does not supply. Even that restriction leaves many possibilities.
 
-Organisational requests work similarly. “Allocate this budget” does not establish the relative importance of growth, resilience, service quality and existing commitments. Past examples may suggest a plausible allocation of requirements, but they cannot establish which priorities apply without relevant evidence.
+Organisational requests work similarly. “Allocate a budget” does not establish the relative importance of growth, resilience, service quality and existing commitments. Past examples may suggest a plausible default set of requirements, but they cannot establish which priorities apply without relevant evidence.
 
 Some missing constraints are discoverable facts. Others are preferences that stakeholders have not articulated or decisions they have not yet made. In those cases, clarification may require negotiation and judgement. There may be no pre-existing answer waiting to be inferred.
 
@@ -50,7 +50,7 @@ Some missing constraints are discoverable facts. Others are preferences that sta
 
 Linear algebra offers a useful analogy. For a consistent system of linear equations, a unique solution exists when the coefficient matrix has full column rank: there is enough independent constraint information to determine every unknown. Simply adding more equations does not help if they repeat existing information. Inconsistent constraints can leave no solution at all.
 
-An organisational problem can be viewed as having both stated and hidden constraints. An AI system may fill the gaps with inferred assumptions and obtain an apparently complete solution. That solution is justified only to the extent that the assumptions fit the actual situation.
+An organisational problem can be viewed as having both stated and hidden constraints. An AI system may fill the gaps with inferred assumptions and obtain an apparently complete solution. That solution is justified only to the extent that the assumptions fit the situation under analysis.
 
 As the problem spans more domains, its constraints may concern unrelated matters: resource availability, customer expectations, operational dependencies and commercial priorities. Learning one may reveal little about another. However, linear independence means that no constraint can be derived from the others. Misunderstanding of the problem or organisation could still cause the AI system to infer several constraints incorrectly, so its errors need not be statistically independent.
 
@@ -60,7 +60,7 @@ To illustrate one possible pattern, suppose a successful outcome requires all `n
 
 With `p = 0.95`, joint correctness is approximately 60% for ten assumptions and 36% for twenty. Under these assumptions, individually reliable guesses can produce a substantially less reliable combination.
 
-This is only a conditional illustration. Errors can be correlated; some assumptions are inconsequential; validation can catch mistakes; and several different solutions may be acceptable. The practical concern is the accumulation of consequential, unverified assumptions. Increases in ambiguity can, but does not consistently, produce a non-uniform geometric or exponential loss of correctness across all dimensions of a solution.
+This is only a conditional illustration. Errors can be correlated some assumptions are inconsequential, validation can catch mistakes, and several different solutions may be acceptable. The practical concern is the accumulation of consequential but unverified assumptions. Increases in ambiguity can, but does not consistently, produce a non-uniform geometric or exponential loss of correctness across all dimensions of a solution.
 
 ## Context selection and AI feedback loops
 
