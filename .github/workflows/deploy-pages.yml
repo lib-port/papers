@@ -75,6 +75,7 @@ jobs:
             --no-fund \
             "@docusaurus/core@${DOCUSAURUS_VERSION}" \
             "@docusaurus/faster@${DOCUSAURUS_VERSION}" \
+            "@docusaurus/plugin-content-docs@${DOCUSAURUS_VERSION}" \
             "@docusaurus/preset-classic@${DOCUSAURUS_VERSION}" \
             "@docusaurus/theme-common@${DOCUSAURUS_VERSION}" \
             "@docusaurus/module-type-aliases@${DOCUSAURUS_VERSION}" \

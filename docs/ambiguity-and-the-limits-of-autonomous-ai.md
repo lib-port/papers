@@ -1,7 +1,7 @@
 ---
 title: Ambiguity and the Limits of Autonomous AI
 description: A conceptual white paper on hidden constraints, organisational judgement and the limits of inference in autonomous AI systems.
-sidebar_label: Ambiguity and the Limits of Autonomous AI
+sidebar_label: Ambiguity and Autonomous AI
 ---
 
 # Ambiguity and the Limits of Autonomous AI

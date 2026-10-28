@@ -6,6 +6,12 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 
 The separate landing page is disabled. The paper index in [`docs/index.md`](docs/index.md) is served at `/papers/`; the site title, logo and Home navigation link there. Other documentation URLs omit the `/docs/` prefix. Keep this index when adding or removing papers so links to the site root remain valid.
 
+## Adding papers
+
+Add a Markdown file under `docs/` with `title` and `description` in its front matter. The home page automatically lists papers alphabetically by their full title, using each document's description and generated URL. Editing or removing a paper updates the listing on the next build; manual index entries are unnecessary.
+
+Every document under `docs/`, apart from the index, is treated as a paper. Nested documents and custom slugs are supported. Set `unlisted: true` to leave a paper accessible at its URL while excluding it from the production index. Set `draft: true` to exclude a paper from production builds. Docusaurus includes both unlisted and draft papers during development so they can be previewed. The listing is rendered into the generated HTML and works with JavaScript disabled.
+
 ## Installation
 
 Use **Node.js 24**, as specified in [.node-version](.node-version), and npm.

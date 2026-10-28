@@ -6,8 +6,8 @@ sidebar_label: Home
 sidebar_position: 1
 ---
 
+import PaperList from '@site/src/components/PaperList';
+
 # Papers
 
-## [Ambiguity and the Limits of Autonomous AI](./ambiguity-and-the-limits-of-autonomous-ai.md)
-
-A conceptual white paper on hidden constraints, organisational judgement and the limits of inference in autonomous AI systems.
+<PaperList />
