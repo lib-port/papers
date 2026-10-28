@@ -42,6 +42,8 @@ Three mathematical examples illustrate progressively greater freedom in selectin
 
 The triple `(20, 20, 60)` may look natural for allocating whole units. Yet `(∛3, 10^e, 100 − ∛3 − 10^e)` also satisfies the equation exactly. Preferring natural numbers introduces a constraint that the equation itself does not supply. Even that restriction leaves many possibilities.
 
+A notable aspect of the problem statement example is that arbitarily restricting x to a specific number or a set of numbers still admits infinitely many real solutions of y and z combinations. 
+
 Organisational requests work similarly. “Allocate a budget” does not establish the relative importance of growth, resilience, service quality and existing commitments. Past examples may suggest a plausible default set of requirements, but they cannot establish which priorities apply without relevant evidence.
 
 Some missing constraints are discoverable facts. Others are preferences that stakeholders have not articulated or decisions they have not yet made. In those cases, clarification may require negotiation and judgement. There may be no pre-existing answer waiting to be inferred.
@@ -60,7 +62,7 @@ To illustrate one possible pattern, suppose a successful outcome requires all `n
 
 With `p = 0.95`, joint correctness is approximately 60% for ten assumptions and 36% for twenty. Under these assumptions, individually reliable guesses can produce a substantially less reliable combination.
 
-This is only a conditional illustration. Errors can be correlated some assumptions are inconsequential, validation can catch mistakes, and several different solutions may be acceptable. The practical concern is the accumulation of consequential but unverified assumptions. Increases in ambiguity can, but does not consistently, produce a non-uniform geometric or exponential loss of correctness across all dimensions of a solution.
+This is only a conditional illustration. Errors can be correlated, some assumptions are inconsequential, validation can catch mistakes, and several different solutions may be acceptable. The practical concern is the accumulation of consequential but unverified assumptions. Increases in ambiguity can, but does not consistently, produce a non-uniform geometric or exponential loss of correctness across all dimensions of a solution.
 
 ## Context selection and AI feedback loops
 
