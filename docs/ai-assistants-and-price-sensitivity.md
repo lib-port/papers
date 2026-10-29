@@ -1,6 +1,8 @@
 ---
 title: AI Assistants, Price Sensitivity and the Future of Financial Pricing
 description: A conceptual paper on how widespread AI assistance could reshape price sensitivity and financial pricing, illustrated through Australian home loans and insurance.
+last_update:
+  date: '2026-10-28'
 sidebar_label: AI Assistants and Price Sensitivity
 ---
 
@@ -60,7 +62,7 @@ These overlapping approaches would face different pressures:
 
 Removing overlooked charges could increase upfront prices where those charges previously subsidised acquisition. Competitive pressure could redistribute payments across the contract as well as reduce margins. Providers would need to distinguish profitable differentiation from revenue that depends on customers overlooking its cost.
 
-Pricing teams would also need to separate risk differences from differences in shopping behaviour. Historical renewal patterns may overstate future retention if AI assistants are used to routinely test alternatives. Models of price responsiveness, expected customer tenure and acquisition payback would need recalibration. Lending and insurance would retain their specialised risk models, while the commercial assumptions layered onto those models could change substantially.
+Pricing teams would also need to separate risk differences from differences in shopping behaviour. Historical renewal patterns may overstate future retention if AI assistants are used to routinely compare alternatives. Models of price responsiveness, expected customer tenure and acquisition payback would need recalibration. Lending and insurance would retain their specialised risk models, while the commercial assumptions layered onto those models could change substantially.
 
 ## Conditions and strategic implications
 

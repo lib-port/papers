@@ -1,6 +1,8 @@
 ---
 title: Ambiguity and the Limits of Autonomous AI
 description: A conceptual white paper on hidden constraints, organisational judgement and the limits of inference in autonomous AI systems.
+last_update:
+  date: '2026-10-29'
 sidebar_label: Ambiguity and Autonomous AI
 ---
 
@@ -30,7 +32,7 @@ A comprehensive problem statement can leave substantial implementation freedom w
 
 Two difficulties follow. **Ambiguity** permits multiple interpretations; **underspecification** leaves relevant details unstated. A request to “improve service” can exhibit both. Its meaning may concern speed, quality or accessibility, while omitting acceptable costs and minimum service levels.
 
-The hypothesis here is that further progress will make common interpretations easier to infer, while unusual combinations of circumstances remain harder. This predicts uneven reliability, but not necessarily a permanent ceiling on performance in rare cases. Frequently occuring problem to solution mappings provides a basis for a reasonable guess, but its relevance depends on whether the current organisation fits the pattern.
+The hypothesis here is that further progress will make common interpretations easier to infer, while unusual combinations of circumstances remain harder. This predicts uneven reliability, but not necessarily a permanent ceiling on performance in rare cases. Frequently occurring problem to solution mappings provide a basis for a reasonable guess, but its relevance depends on whether the current organisation fits the pattern.
 
 ## The hidden-constraint problem
 
@@ -42,7 +44,7 @@ Three mathematical examples illustrate progressively greater freedom in selectin
 
 The triple `(20, 20, 60)` may look natural for allocating whole units. Yet `(∛3, 10^e, 100 − ∛3 − 10^e)` also satisfies the equation exactly. Preferring natural numbers introduces a constraint that the equation itself does not supply. Even that restriction leaves many possibilities.
 
-A notable aspect of the problem statement example is that arbitarily restricting x to a specific number or a set of numbers still admits infinitely many real solutions of y and z combinations. 
+A notable aspect of the problem statement example is that arbitrarily restricting x to a specific number or a set of numbers still admits infinitely many real solutions of y and z combinations. 
 
 Organisational requests work similarly. “Allocate a budget” does not establish the relative importance of growth, resilience, service quality and existing commitments. Past examples may suggest a plausible default set of requirements, but they cannot establish which priorities apply without relevant evidence.
 
@@ -62,7 +64,7 @@ To illustrate one possible pattern, suppose a successful outcome requires all `n
 
 With `p = 0.95`, joint correctness is approximately 60% for ten assumptions and 36% for twenty. Under these assumptions, individually reliable guesses can produce a substantially less reliable combination.
 
-This is only a conditional illustration. Errors can be correlated, some assumptions are inconsequential, validation can catch mistakes, and several different solutions may be acceptable. The practical concern is the accumulation of consequential but unverified assumptions. Increases in ambiguity can, but does not consistently, produce a non-uniform geometric or exponential loss of correctness across all dimensions of a solution.
+This is only a conditional illustration. Errors can be correlated, some assumptions are inconsequential, validation can catch mistakes, and several different solutions may be acceptable. The practical concern is the accumulation of consequential but unverified assumptions. Increases in ambiguity can produce a non-uniform geometric or exponential loss of correctness across all dimensions of a solution.
 
 ## Context selection and AI feedback loops
 

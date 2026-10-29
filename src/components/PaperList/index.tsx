@@ -1,5 +1,6 @@
 import React, {type ReactNode} from 'react';
 import Link from '@docusaurus/Link';
+import {usePluginData} from '@docusaurus/useGlobalData';
 import {
   useDoc,
   useDocsData,
@@ -13,6 +14,8 @@ export default function PaperList(): ReactNode {
   const {metadata} = useDoc();
   const version = useDocsVersion();
   const docsData = useDocsData(version.pluginId);
+  const dates = usePluginData('paper-update-dates') as Record<string, Record<string, Record<string, number | null>>>;
+  const versionDates = dates[version.pluginId]?.[version.version] ?? {};
   const routes = docsData.versions.find(
     (candidate) => candidate.name === version.version,
   );
@@ -32,9 +35,17 @@ export default function PaperList(): ReactNode {
       return [{...doc, path: route.path}];
     })
     .sort(
-      (a, b) =>
-        titleCollator.compare(a.title, b.title) ||
-        a.id.localeCompare(b.id, 'en-GB'),
+      (a, b) => {
+        const aDate = versionDates[a.id] ?? null;
+        const bDate = versionDates[b.id] ?? null;
+        if (aDate === null && bDate !== null) return 1;
+        if (aDate !== null && bDate === null) return -1;
+        return (
+          (bDate ?? 0) - (aDate ?? 0) ||
+          titleCollator.compare(a.title, b.title) ||
+          a.id.localeCompare(b.id, 'en-GB')
+        );
+      },
     );
 
   if (papers.length === 0) {
